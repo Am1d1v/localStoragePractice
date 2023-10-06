@@ -1,41 +1,19 @@
 
 
-const checkbox = document.querySelector('#checkbox');
-const form = document.querySelector('form');
-const change = document.querySelector('#color');
+const toggle = document.querySelector('.toggleBtn');
 
-
-if(localStorage.getItem('isChecked')){
-    checkbox.checked = true;
-}
-
-checkbox.addEventListener('change', () => {
-    localStorage.setItem('isChecked', true);
-});
-
-if(localStorage.getItem('bg') === 'changed'){
-    form.style.backgroundColor = "pink";
-}
-
-
-change.addEventListener('click', () => {
-    if(localStorage.getItem('bg') === 'changed'){
-        localStorage.removeItem('bg');
-        form.style.backgroundColor = "white";
+toggle.addEventListener('click', () => {
+    if(localStorage.getItem('blackTheme') === 'false'){
+        document.body.style.backgroundColor = 'Black';
+        localStorage.setItem('blackTheme', true)
     } else {
-        localStorage.setItem('bg', 'changed');
-        form.style.backgroundColor = "gray";
+        document.body.style.backgroundColor = 'White'
+        localStorage.setItem('blackTheme', false)
     }
 })
 
 
-const person = {
-    name: 'Name',
-    age: 30
-}
-
-const serializedPerson = JSON.stringify(person);
-localStorage.setItem('person', serializedPerson);
-console.log(localStorage.getItem('person'));
-
+localStorage.setItem('key1', 123);
+localStorage.setItem('key2', 'String');
+localStorage.setItem('blackTheme', false);
 
